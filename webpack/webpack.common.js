@@ -45,15 +45,6 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules)/,
-        options: {
-          presets: ['@babel/react'],
-          plugins: [['import', { libraryName: 'antd', style: true }]],
-        },
-      },
     ],
   },
   serve: {
