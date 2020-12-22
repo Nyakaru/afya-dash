@@ -43,14 +43,20 @@ function LayoutBanner({ collapsed, handleOnCollapse }) {
         </Button>
       </div>
       <div style={{ width: 170, marginRight: 80 }}>
-        <Progress percent={100} size="small" />
+        <Progress
+          percent={60}
+          size="small"
+          strokeColor="#4e1ed4"
+          showInfo={false}
+        />
+        {/* <span>24/24k Tasks completed</span> */}
       </div>
       <div style={{ float: 'left' }}>
-        <span> Kinara</span>
-        <span>Kin@accessafya.com</span>
+        {/* <span> Sandra</span> */}
+        <span>Sandra@accessafya.com</span>
       </div>
       <Menu onClick={handleSettingMenuClick} mode="horizontal" className="menu">
-        <SubMenu title={getUsernameAvatar('Kinara')}>
+        <SubMenu title={getUsernameAvatar('Sandra')}>
           <Menu.Item key="setting:1">
             <span>
               <UserOutlined />

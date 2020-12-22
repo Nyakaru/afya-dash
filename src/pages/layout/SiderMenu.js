@@ -41,7 +41,7 @@ function SiderMenu({ handleOnCollapse, collapsed }) {
       <Menu mode="inline" theme={theme} onClick={handleSiderMenuClick}>
         <Menu.Item key="dashboard">
           <DashboardOutlined />
-          <span className="nav-text">Dashboard</span>
+          <span className="nav-text">Analytics</span>
         </Menu.Item>
         <Menu.Item key="settings">
           <SettingOutlined />
