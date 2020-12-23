@@ -27,10 +27,17 @@ function LayoutBanner({ collapsed, handleOnCollapse }) {
   const handleLogout = () => {};
 
   return (
-    <Header className="header" style={{ background: '#fff', padding: 0 }}>
+    <Header
+      className="header"
+      style={{
+        background: '#fff',
+        padding: 0,
+        justifyContent: 'space-between',
+        height: 'auto',
+      }}
+    >
       <div
         style={{
-          float: 'left',
           width: '100%',
           alignSelf: 'center',
           display: 'flex',
@@ -42,35 +49,57 @@ function LayoutBanner({ collapsed, handleOnCollapse }) {
           <PlusOutlined />
         </Button>
       </div>
-      <div style={{ width: 170, marginRight: 80 }}>
-        <Progress
-          percent={60}
-          size="small"
-          strokeColor="#4e1ed4"
-          showInfo={false}
-        />
-        {/* <span>24/24k Tasks completed</span> */}
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+        }}
+      >
+        <div>
+          <Progress
+            percent={60}
+            size="small"
+            strokeColor="#4e1ed4"
+            showInfo={false}
+          />
+          <span>24/24k Tasks completed</span>
+        </div>
       </div>
-      <div style={{ float: 'left' }}>
-        {/* <span> Sandra</span> */}
-        <span>Sandra@accessafya.com</span>
+      <div>
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+          }}
+        >
+          <div>
+            <span> Sandra</span>
+            <span>Sandra@accessafya.com</span>
+          </div>
+          <div>
+            <Menu
+              onClick={handleSettingMenuClick}
+              mode="horizontal"
+              className="menu"
+            >
+              <SubMenu title={getUsernameAvatar('Sandra')}>
+                <Menu.Item key="setting:1">
+                  <span>
+                    <UserOutlined />
+                    Profile
+                  </span>
+                </Menu.Item>
+                <Menu.Item key="setting:2">
+                  <span>
+                    <LogoutOutlined onClick={handleLogout} />
+                    Logout
+                  </span>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          </div>
+        </div>
       </div>
-      <Menu onClick={handleSettingMenuClick} mode="horizontal" className="menu">
-        <SubMenu title={getUsernameAvatar('Sandra')}>
-          <Menu.Item key="setting:1">
-            <span>
-              <UserOutlined />
-              Profile
-            </span>
-          </Menu.Item>
-          <Menu.Item key="setting:2">
-            <span>
-              <LogoutOutlined onClick={handleLogout} />
-              Logout
-            </span>
-          </Menu.Item>
-        </SubMenu>
-      </Menu>
     </Header>
   );
 }
