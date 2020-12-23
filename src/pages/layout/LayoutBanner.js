@@ -27,10 +27,17 @@ function LayoutBanner({ collapsed, handleOnCollapse }) {
   const handleLogout = () => {};
 
   return (
-    <Header className="header" style={{ background: '#fff', padding: 0 }}>
+    <Header
+      className="header"
+      style={{
+        background: '#fff',
+        padding: 0,
+        lineHeight: '0px',
+        height: 'auto',
+      }}
+    >
       <div
         style={{
-          float: 'left',
           width: '100%',
           alignSelf: 'center',
           display: 'flex',
@@ -42,35 +49,84 @@ function LayoutBanner({ collapsed, handleOnCollapse }) {
           <PlusOutlined />
         </Button>
       </div>
-      <div style={{ width: 170, marginRight: 80 }}>
-        <Progress
-          percent={60}
-          size="small"
-          strokeColor="#4e1ed4"
-          showInfo={false}
-        />
-        {/* <span>24/24k Tasks completed</span> */}
+
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-around',
+          flexDirection: 'column',
+          marginLeft: '10%',
+          marginRight: '10%',
+        }}
+      >
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-around',
+            flexDirection: 'column',
+            lineHeight: '16px',
+          }}
+        >
+          <Progress
+            percent={10}
+            size="small"
+            strokeColor="#4e1ed4"
+            showInfo={false}
+            style={{
+              lineHeight: '0',
+            }}
+          />
+          <div>24/24k Tasks completed</div>
+        </div>
       </div>
-      <div style={{ float: 'left' }}>
-        {/* <span> Sandra</span> */}
-        <span>Sandra@accessafya.com</span>
+
+      <div
+        style={{
+          paddingTop: '20px',
+          width: '100%',
+          display: 'flex',
+          lineHeight: '16px',
+          marginRight: '0px',
+        }}
+      >
+        <div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+            }}
+          >
+            <span> Sandra</span>
+            <span>Sandra@accessafya.com</span>
+          </div>
+        </div>
+
+        <div>
+          <Menu
+            onClick={handleSettingMenuClick}
+            mode="horizontal"
+            className="menu"
+          >
+            <SubMenu title={getUsernameAvatar('Sandra')}>
+              <Menu.Item key="setting:1">
+                <span>
+                  <UserOutlined />
+                  Profile
+                </span>
+              </Menu.Item>
+              <Menu.Item key="setting:2">
+                <span>
+                  <LogoutOutlined onClick={handleLogout} />
+                  Logout
+                </span>
+              </Menu.Item>
+            </SubMenu>
+          </Menu>
+        </div>
       </div>
-      <Menu onClick={handleSettingMenuClick} mode="horizontal" className="menu">
-        <SubMenu title={getUsernameAvatar('Sandra')}>
-          <Menu.Item key="setting:1">
-            <span>
-              <UserOutlined />
-              Profile
-            </span>
-          </Menu.Item>
-          <Menu.Item key="setting:2">
-            <span>
-              <LogoutOutlined onClick={handleLogout} />
-              Logout
-            </span>
-          </Menu.Item>
-        </SubMenu>
-      </Menu>
     </Header>
   );
 }
